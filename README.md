@@ -10,7 +10,7 @@ En [esta liga](https://twitter.com/PolisParitaria/status/1492599356221964299) en
 
 Para conocer más del proyecto del cuál forma parte este libro, haz clic [aquí](https://sites.google.com/view/representacionparitaria/el-proyecto).
 
-*Nota*: Mientras que en los capítulos 3 y 5 el análisis fue realizado con `R`, en el cuatro utilizamos `Stata`.
+*Nota*: Mientras que en los capítulos 3 y 5 el análisis fue realizado con `R`, en el 4 utilizamos `Stata`.
 
 __*English*__
 
@@ -19,3 +19,5 @@ This repository contains the databases, code, graphs and results of the book Wom
 In [this link]((https://twitter.com/PolisParitaria/status/1492599356221964299)) you will find a summary with the main arguments and findings of the book (in Spanish).
 
 To learn more about the project of which this book is a part, click [here](https://sites.google.com/view/representacionparitaria/el-proyecto).
+
+Note: While in chapters 3 and 5 the analysis was done with `R`, in chapter 4 we used `Stata`.
