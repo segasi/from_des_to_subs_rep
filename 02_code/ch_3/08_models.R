@@ -121,7 +121,7 @@ fixef(m4_mr) # Fixed effects
 ranef(m4_mr) # Random effects
 
 
-# Sin ifreg - modelo NO incluido en el artículo ----
+# Sin ifreg - modelo NO incluido en el capítulo ----
 m4_mr_a <- 
   glmer(cbind(n_female_legislators, n_male_legislators) ~ 1 +  age_first_gender_law + state_gpd_per_capita_rescaled + percent_urban_pop + avg_yr_school + prop_female_legislators_lag + party_alternation + (1 + state_gpd_per_capita_rescaled + percent_urban_pop + avg_yr_school | state), 
         data = bd_mr,
