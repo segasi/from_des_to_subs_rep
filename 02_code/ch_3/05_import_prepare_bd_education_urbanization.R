@@ -257,7 +257,69 @@ bd_pop_2000 <-
 
 
 
+# Import files of the 2015 intercensus poll (encuesta intercensal) on population living in localities with less or more than 2,500 inhabitants ----
 
+# Create list with files
+pop_files <- 
+  list.files(path = "01_data/ch_3/inegi/urbanization/encuesta_intercensal_2015/", pattern = "01_poblacion")
+
+# Join all tibbles in one file for the 2015 data
+bd_pop_2015 <- 
+  pop_files %>% 
+  map(function(x) {
+    read_excel(paste0("01_data/ch_3/inegi/urbanization/encuesta_intercensal_2015/", x), sheet = "01", skip = 7, col_names = F) %>% 
+      clean_names() 
+  })  %>% 
+  # Join all tibbles
+  reduce(rbind) 
+
+
+# Clean and homogenize data for the 2015 intercensus poll ----
+
+# Rename, filter and select columns; edit values of state names 
+bd_pop_2015 <- 
+  bd_pop_2015 %>% 
+  # Rename variables
+  rename(state = x1, 
+         loc_size = x2, 
+         age_gpo = x3,
+         estimator = x4, 
+         pop_tot = x5, 
+         pop_hombres = x6,
+         pop_mujeres = x7) %>% 
+  # Filter rows
+  filter(loc_size %in% c("Total", "Menos de 2 500 habitantes"), 
+         age_gpo == "Total",
+         estimator == "Valor") %>%
+  # Select columns
+  select(state, loc_size, pop_tot)
+
+# Homogenize state names ----
+bd_pop_2015 <- 
+  bd_pop_2015 %>% 
+  # Create variable year, state varibale without the state geo code and edit state names
+  mutate(year = 2015,
+         state = str_sub(state, start = 4, end = 150),
+         state = str_trim(state),
+         state = case_when(state == "Coahuila de Zaragoza" ~ "Coahuila",
+                           state == "Michoacán de Ocampo" ~ "Michoacán",
+                           state == "Veracruz de Ignacio de la Llave" ~ "Veracruz",
+                           state == "México" ~ "Estado de México",
+                           TRUE ~ state)) 
+
+
+# Change data structure from wide to long ----
+bd_pop_2015 <- 
+  bd_pop_2015 %>% 
+  pivot_wider(names_from = "loc_size",
+              values_from = "pop_tot") 
+
+# Create percent_urban_pop, share of urban population ----
+bd_pop_2015 <- 
+  bd_pop_2015 %>% 
+  mutate(percent_urban_pop = 100 - (`Menos de 2 500 habitantes`/Total*100)) %>% 
+  # Select columns
+  select(state, percent_urban_pop, year) 
 
 
 # Join data on population living in localities with less or more than 2,500 inhabitants ---- 
