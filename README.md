@@ -20,4 +20,4 @@ In [this link]((https://twitter.com/PolisParitaria/status/1492599356221964299)) 
 
 To learn more about the project of which this book is a part, click [here](https://sites.google.com/view/representacionparitaria/el-proyecto).
 
-Note: While in chapters 3 and 5 the analysis was done with `R`, in chapter 4 we used `Stata`.
+*Note*: While in chapters 3 and 5 the analysis was done with `R`, in chapter 4 we used `Stata`.
