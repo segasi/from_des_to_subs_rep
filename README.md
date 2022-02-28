@@ -10,6 +10,8 @@ En [esta liga](https://twitter.com/PolisParitaria/status/1492599356221964299) en
 
 Para conocer más del proyecto del cuál forma parte este libro, haz clic [aquí](https://sites.google.com/view/representacionparitaria/el-proyecto).
 
+*Nota*: Mientras que en los capítulos 3 y 5 el análisis fue realizado con `R`, en el cuatro utilizamos `Stata`.
+
 __*English*__
 
 This repository contains the databases, code, graphs and results of the book Women in Mexican Subnational Legislatures. From Descriptive to Substantive Representation, co-authored with Flavia Freidenberg, Karolina Gilas, and Camilo Saavedra Herrera, and published by [Springer](https://link.springer.com/book/10.1007/978-3-030-94078-2).
